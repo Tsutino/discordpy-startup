@@ -36,7 +36,7 @@ async def slot(ctx):
 
     while i < random.randint(1, 5):
 
-      await ctx.send("%s%s%s" % ("<:auyellow:824832834005893120>", "<:auyellow:824832834005893120>", "<:auyellow:824832834005893120>")) #7だけ出るように指定
+      await ctx.send("%s%s%s" % (A,A,A)) #7だけ出るように指定
 
       await asyncio.sleep(1)
 
