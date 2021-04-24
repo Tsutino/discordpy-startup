@@ -18,7 +18,7 @@ async def slot(ctx):
 
   kakuritu = random.randint(1, 319)
 
-  slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', ':auyellow:', ':aublack:']
+  slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', ':aublack:']
 
   A = random.choice(slot_list)
 
