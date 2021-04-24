@@ -10,7 +10,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 @bot.command()
 async def slot(ctx):
   kakuritu = random.randint(1, 319)
-  slot_list = ['{あ', '{い}:', '{絵文字ID}', '{絵文字ID}', '{絵文字ID}']
+  slot_list = ['あ', 'い:', '{絵文字ID}', '{絵文字ID}', '{絵文字ID}']
   A = random.choice(slot_list)
   B = random.choice(slot_list)
   C = random.choice(slot_list)
