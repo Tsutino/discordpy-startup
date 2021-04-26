@@ -45,5 +45,7 @@ async def slot(ctx):
   else:
 
     await ctx.send("%s%s%s" % (f"{A} ",f"{B} ",f"{C} "))
+    if {A==B==C}:
+      await ctx.send("スリーフレンズ！！！")
 
 bot.run(token)
