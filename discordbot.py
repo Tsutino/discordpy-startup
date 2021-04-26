@@ -44,6 +44,6 @@ async def slot(ctx):
 
   else:
 
-    await ctx.send("%s%s%s" % (A,B,C))
+    await ctx.send("%s%s%s" % (f"{A} ",f"{B} ",f"{C} "))
 
 bot.run(token)
