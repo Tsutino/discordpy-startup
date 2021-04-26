@@ -26,26 +26,8 @@ async def slot(ctx):
 
   C = random.choice(slot_list)
 
-  if int(kakuritu) == int(1): #確率は1 /399
-
-    await ctx.send("ボーナス確定！！！")
-
-    await asyncio.sleep(3) #3秒間待ってやる
-
-    i=0
-
-    while i < random.randint(1, 5):
-
-      await ctx.send("%s%s%s" % (A,A,A)) #7だけ出るように指定
-
-      await asyncio.sleep(1)
-
-      i += 1
-
-  else:
-
-    await ctx.send("%s%s%s" % (f"{A} ",f"{B} ",f"{C} "))
-    if A==B==C:
-      await ctx.send("スリーフレンズ！！！")
+  await ctx.send("%s%s%s" % (f"{A} ",f"{B} ",f"{C} "))
+  if A==B==C:
+    await ctx.send("スリーフレンズ！！！")
 
 bot.run(token)
