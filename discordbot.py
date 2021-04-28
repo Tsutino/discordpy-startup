@@ -7,6 +7,7 @@ import asyncio #sleepを使うのに必要
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', '<:ruter:835556735791661056>','<:dolca:793155035902640170>','<:aardwolf:793155951381184601>']
+coin_dict = {}
 
 @bot.command()
 async def slot(ctx):
@@ -19,5 +20,8 @@ async def slot(ctx):
   #揃った場合
   if A==B==C:
     await ctx.send("スリーフレンズ！！！")
+    coin_dict.setdefault(ctx.author.id,100)
+    coin_dict[ctx.author.id]+=100
+    print(coin)
 
 bot.run(token)
