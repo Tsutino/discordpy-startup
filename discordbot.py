@@ -16,18 +16,11 @@ r = csv.reader(f,delimiter=",", doublequote=True, lineterminator="\r\n", quotech
 slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', '<:ruter:835556735791661056>','<:dolca:793155035902640170>','<:aardwolf:793155951381184601>']
 ids_list = []
 
-try:#csvファイルに中身があったら
-    ids_list = list(next(r))
-    f.seek(0)#進んだイテレータを元に戻す
-except StopIteration:
-    print("csvの中に何もない")
-
 coin_dict = {row[0] : row[1] for row in r}#csvファイルの中身をcoin_dictの中に代入(内包表記を使用)
 
 @bot.command()
 async def slot(ctx):
     #関数内でグローバル変数に代入できるようにする
-    global ids_list
     global coin_dict
 
     #抽選 & 結果の送信
@@ -37,8 +30,6 @@ async def slot(ctx):
     await ctx.send(f"{A} {B} {C}")
 
     #データべースを準備
-    ids_list.append(ctx.author.id)#ユーザーに追加
-    ids_list = list(set(ids_list))#ユーザーリストの重複を削除
     coin_dict.setdefault(str(ctx.author.id), 0)#ユーザーの財布を作成
 
     if A==B==C:#揃った場合
