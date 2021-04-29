@@ -15,11 +15,12 @@ r = csv.reader(f,delimiter=",", doublequote=True, lineterminator="\r\n", quotech
 #必要な変数の定義
 slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', '<:ruter:835556735791661056>','<:dolca:793155035902640170>','<:aardwolf:793155951381184601>']
 ids_list = []
+
 try:#csvファイルに中身があったら
     ids_list = list(next(r))
-except:
+    f.seek(0)#進んだイテレータを元に戻す
+except StopIteration:
     print("csvの中に何もない")
-f.seek(0)#next(r)で進んでしまったイテレータを元に戻す
 
 coin_dict = {row[0] : row[1] for row in r}#csvファイルの中身をcoin_dictの中に代入(内包表記を使用)
 
@@ -33,7 +34,7 @@ async def slot(ctx):
     A = random.choice(slot_list)
     B = random.choice(slot_list)
     C = random.choice(slot_list)
-    await ctx.send("%s%s%s" % (f"{A} ",f"{B} ",f"{C} "))
+    await ctx.send(f"{A} {B} {C}")
 
     #データべースを準備
     ids_list.append(ctx.author.id)#ユーザーに追加
