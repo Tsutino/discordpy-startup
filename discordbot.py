@@ -24,7 +24,7 @@ def updateTable(userID, coinNumber):
   cur.fetchone()
   conn.commit()
 
-slot_list = ['<:element_tsutinoko:793148122653392937>', '<:aardwolf:793155951381184601>']
+slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', '<:ruter:835556735791661056>','<:dolca:793155035902640170>','<:aardwolf:793155951381184601>']
 dict_result = setDictionary()
 @bot.command()
 async def slot(ctx):
@@ -37,7 +37,6 @@ async def slot(ctx):
   await ctx.send(f"{A} {B} {C}")
   #揃った場合
   if A==B==C:
-    await ctx.send(userID)
     await ctx.send("スリーフレンズ！！！")
     dict_result[userID] = int(dict_result[userID]) + 100
     dict_result = setDictionary()
