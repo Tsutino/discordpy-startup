@@ -8,7 +8,7 @@ import psycopg2.extras
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-url = os.environ['POSTGRES_URL']
+url = os.environ['DATABASE_URL']
 conn = psycopg2.connect(url)
 cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 cur.execute("""select * from discordbot_table;""")
