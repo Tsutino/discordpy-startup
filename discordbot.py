@@ -14,18 +14,28 @@ cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 cur.execute("""select * from discordbot_table;""")
 r = cur.fetchall()
 dict_result={dict(row)["ids"] : dict(row)["coins"] for row in r}
+cur.close()
+conn.close()
 
 def setTable(userID, coinNumber):
+  conn = psycopg2.connect(url)
+  cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
   cur.execute("INSERT INTO discordbot_table (ids, coins) VALUES (%s, %s);", (userID, coinNumber))
   cur.execute("SELECT * FROM discordbot_table;")
   cur.fetchone()
   conn.commit()
+  cur.close()
+  conn.close()
 
 def updateTable(userID, coinNumber):
+  conn = psycopg2.connect(url)
+  cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
   cur.execute("UPDATE discordbot_table SET coins = '%s' WHERE ids='%s';", (coinNumber , userID))
   cur.execute("SELECT * FROM discordbot_table;")
   cur.fetchone()
   conn.commit()
+  cur.close()
+  conn.close()
 
 slot_list = ['<:element_tsutinoko:793148122653392937>', '<:aardwolf:793155951381184601>']
 
