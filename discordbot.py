@@ -18,12 +18,6 @@ def setDictionary():
   dict_result={dict(row)["ids"] : dict(row)["coins"] for row in r}
   return dict_result
 
-def setTable(userID, coinNumber):
-  cur.execute("INSERT INTO discordbot_table (ids, coins) VALUES (%s, %s);", (userID, coinNumber))
-  cur.execute("SELECT * FROM discordbot_table;")
-  cur.fetchone()
-  conn.commit()
-
 def updateTable(userID, coinNumber):
   cur.execute("UPDATE discordbot_table SET coins = '%s' WHERE ids='%s';", (coinNumber , userID))
   cur.execute("SELECT * FROM discordbot_table;")
@@ -41,8 +35,6 @@ async def slot(ctx):
   B = random.choice(slot_list)
   C = random.choice(slot_list)
   await ctx.send(f"{A} {B} {C}")
-  if userID not in dict_result:
-    setTable(userID,0)
   #揃った場合
   if A==B==C:
     await ctx.send(userID)
