@@ -44,8 +44,8 @@ def updateTable(userID, coinNumber):
   cur.close()
   conn.close()
 
-slot_list = ['<:element_tsutinoko:793148122653392937>', '<:aardwolf:793155951381184601>']
 channel_sent = None
+slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', '<:ruter:835556735791661056>','<:dolca:793155035902640170>','<:aardwolf:793155951381184601>']
 
 @bot.command()
 async def slot(ctx):
