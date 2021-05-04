@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 url = os.environ['DATABASE_URL']
 
-def setDictionary():
+def getDictionary():
   conn = psycopg2.connect(url)
   cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
   cur.execute("""select * from discordbot_table;""")
@@ -24,10 +24,11 @@ def updateTable(userID, coinNumber):
   cur.fetchone()
   conn.commit()
 
-slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>', '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', '<:ruter:835556735791661056>','<:dolca:793155035902640170>','<:aardwolf:793155951381184601>']
+#, '<:resplendentquetzal:803594155451482113>', '<:prairiedog:793153927595163691>', '<:ruter:835556735791661056>','<:dolca:793155035902640170>','<:aardwolf:793155951381184601>'
+slot_list = ['<:element_tsutinoko:793148122653392937>', '<:habu:829971281754718240>']
 @bot.command()
 async def slot(ctx):
-  dict_result = setDictionary()
+  dict_result = getDictionary()
   userID = str(ctx.author.id)
   #抽選
   A = random.choice(slot_list)
@@ -38,6 +39,5 @@ async def slot(ctx):
   if A==B==C:
     await ctx.send("スリーフレンズ！！！")
     dict_result[userID] = int(dict_result[userID]) + 100
-    dict_result = setDictionary()
     updateTable((int(userID)),dict_result[userID])
 bot.run(token)
