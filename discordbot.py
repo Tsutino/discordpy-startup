@@ -9,7 +9,6 @@ import psycopg2
 import psycopg2.extras
 import time
 from datetime import datetime
-import schedule
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
