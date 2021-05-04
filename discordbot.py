@@ -52,9 +52,8 @@ async def slot(ctx):
     setTable(userID,0)
   #揃った場合
   if A==B==C:
-    await ctx.send(userID)
     await ctx.send("スリーフレンズ！！！")
+    await ctx.send(f"{ctx.author}さんに+100コイン！")
     dict_result[userID] = int(dict_result[userID]) + 100
     updateTable((int(userID)),dict_result[userID])
-
 bot.run(token)
