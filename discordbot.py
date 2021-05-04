@@ -56,4 +56,11 @@ async def slot(ctx):
     await ctx.send(f"{ctx.author}さんに+100コイン！")
     dict_result[userID] = int(dict_result[userID]) + 100
     updateTable((int(userID)),dict_result[userID])
+
+@bot.command()
+async def coin(ctx):
+  global dict_result
+  userID = str(ctx.author.id)
+  await ctx.send(f"{ctx.author}さんのコイン枚数は{dict_result[userID]}枚です")
+    
 bot.run(token)
