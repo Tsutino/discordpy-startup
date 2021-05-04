@@ -76,7 +76,7 @@ async def coin(ctx):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '20:35' and dt == 1:dt = datetime.now().weekday()
+    if now == '20:35' and dt == 1:
       　channel = bot.get_channel(CHANNEL_ID)
         await channel.send('今日は道場越し！')  
 
