@@ -13,7 +13,7 @@ import schedule
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-CHANNEL_ID = 824833015426580492
+CHANNEL_ID = 721885806125645844
 
 url = os.environ['DATABASE_URL']
 conn = psycopg2.connect(url)
