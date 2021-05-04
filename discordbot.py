@@ -70,17 +70,5 @@ async def coin(ctx):
   userID = str(ctx.author.id)
   await ctx.send(f"{ctx.author}さんのコイン枚数は{dict_result[userID]}枚です")
 
-# 60秒に一回ループ
-@tasks.loop(seconds=60)
-async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    dt = datetime.now().weekday()
-    if now == '21:00' and dt == 1:
-      　channel = bot.get_channel(CHANNEL_ID)
-        await channel.send('今日は道場越し！')  
-
-#ループ処理実行
-loop.start()
 
 bot.run(token)
