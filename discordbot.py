@@ -77,7 +77,7 @@ async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
     dt = datetime.now().weekday()
-    if now == '20:38' and dt == 1:
+    if now == '20:45' and dt == 1:
       　channel = bot.get_channel(CHANNEL_ID)
         await channel.send('今日は道場越し！')  
 
